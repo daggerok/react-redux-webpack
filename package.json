@@ -1,0 +1,180 @@
+{
+  "name": "react-redux-webpack",
+  "description": "react, react-router, redux boilerplate with webpack",
+  "author": "Maksim Kostromin",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "webpack.config.js",
+  "scripts": {
+    "ws": "ws",
+    "webpack": "webpack",
+    "build": "webpack -p",
+    "serve": "npm-run-all build ws",
+    "watch": "webpack -w",
+    "livereload": "livereload -d",
+    "live": "npm-run-all --parallel ws livereload watch",
+    "dev": "npm-run-all webpack live",
+    "start": "webpack-dev-server --content-base ./ -w",
+    "eslint": "eslint --debug ./src",
+    "lintfix": "npm run eslint -- --fix",
+    "test": "npm run eslint",
+    "deploy:static": "surge -p dist/",
+    "postinstall": "webpack"
+  },
+  "pre-push": [
+    "test"
+  ],
+  "local-web-server": {
+    "directory": "./dist/",
+    "port": 3000,
+    "forbid": [
+      "*.json",
+      "*.ts",
+      "*.md",
+      "*.yml",
+      "*.babel.js",
+      ".gitignore"
+    ],
+    "no-cache": true
+  },
+  "livereload": {
+    "exclusions": [
+      "*.git",
+      "node_modules/",
+      ".gitignore",
+      "*.json",
+      "*.md"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react",
+      "es2015"
+    ],
+    "plugins": [
+      "react-html-attrs",
+      "add-module-exports",
+      "transform-class-properties",
+      "transform-decorators-legacy"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "react",
+      "eslint-plugin-react"
+    ],
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "xo",
+      "stylelint"
+    ],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "jsx-quotes": "warn",
+      "react/prop-types": "warn",
+      "react/no-unknown-property": "off",
+      "no-empty": "error",
+      "comma-dangle": "off",
+      "semi": "off",
+      "no-unused-vars": "warn",
+      "object-curly-spacing": "warn",
+      "max-len": [
+        "error",
+        120
+      ],
+      "max-params": [
+        "error",
+        3
+      ],
+      "indent": [
+        "warn",
+        2
+      ],
+      "linebreak-style": [
+        "warn",
+        "unix"
+      ],
+      "quotes": [
+        "warn",
+        "single"
+      ]
+    }
+  },
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "react": "15.1.0",
+    "react-dom": "15.1.0",
+    "react-router": "2.4.1",
+    "redux": "3.5.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.3.6",
+    "babel": "6.5.2",
+    "babel-core": "6.9.1",
+    "babel-loader": "6.2.4",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-react-html-attrs": "2.0.0",
+    "babel-plugin-transform-class-properties": "6.10.2",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.5.0",
+    "copy-webpack-plugin": "3.0.1",
+    "css-loader": "0.23.1",
+    "cssnano": "3.7.1",
+    "editorconfig": "0.13.2",
+    "eslint": "2.13.1",
+    "eslint-config-stylelint": "2.0.0",
+    "eslint-config-xo": "0.15.2",
+    "eslint-plugin-react": "5.2.2",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.9.0",
+    "html-webpack-plugin": "2.21.0",
+    "husky": "0.11.4",
+    "livereload": "0.4.1",
+    "local-web-server": "1.2.6",
+    "npm-run-all": "2.2.0",
+    "postcss-loader": "0.9.1",
+    "pre-push": "0.1.1",
+    "source-map-loader": "0.1.5",
+    "style-loader": "0.13.1",
+    "stylelint": "6.7.0",
+    "surge": "0.18.0",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
+  },
+  "tags": [
+    "react",
+    "react-router",
+    "redux",
+    "eslint",
+    "webpack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggerok/react-redux-webpack.git"
+  },
+  "keywords": [
+    "react",
+    "react-router",
+    "browser",
+    "hystory",
+    "es6",
+    "babel",
+    "webpack"
+  ],
+  "bugs": {
+    "url": "https://github.com/daggerok/react-redux-webpack/issues"
+  },
+  "homepage": "https://github.com/daggerok/react-redux-webpack#readme"
+}

@@ -1,0 +1,9 @@
+language: node_js
+node_js: 6
+script:
+  - npm i
+  - npm test
+  - npm run build
+cache:
+  directories:
+    - node_modules
