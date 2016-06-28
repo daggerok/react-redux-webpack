@@ -30,7 +30,10 @@ export const todosDecorator = (state = {}, action) => {
   }
 };
 */
+/* // let's implement our own combineReducers function
 import { combineReducers } from 'redux';
+*/
+import { combineReducers } from './combineReducers';
 export const todosDecorator = combineReducers({
   todos,
   filterTodo
