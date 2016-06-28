@@ -8,10 +8,8 @@ const
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: {
-    app: [
-      'babel-polyfill',
-      './src/index.jsx'
-    ],
+    polyfill: 'babel-polyfill',
+    app: './src/index.jsx',
     test: './test'
   },
   output: {
@@ -28,7 +26,10 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/
+        exclude: /(node_modules|bower_components)/,
+        query: {
+          presets: ['stage-0', 'es2015', 'react']
+        }
       }, {
         test: /\.css$/,
         loader: ExtractPlugin.extract('style-loader', 'css-loader?importloader=1', 'postcss')

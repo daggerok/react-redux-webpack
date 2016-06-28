@@ -12,13 +12,13 @@
  |
  */
 /*
- const proxy = require('http-proxy-middleware');
- const devApi = proxy('/api', { // all requests to /api/** => will redirect on http://localhost:8080/api/**
- target: 'http://localhost:8080',
- changeOrigin: true, // for vhosted sites, changes host header to match to target's host
- logLevel: 'debug'
- });
- */
+const proxy = require('http-proxy-middleware');
+const devApi = proxy('/api', { // all requests to /api/** => will redirect on http://localhost:8080/api/**
+  target: 'http://localhost:8080',
+  changeOrigin: true, // for vhosted sites, changes host header to match to target's host
+  logLevel: 'debug'
+});
+*/
 module.exports = {
   "server": {
     "baseDir": "./dist/"
