@@ -1,12 +1,12 @@
 /**
  * Created by mak on 6/28/16.
  */
-import { todos } from '../../src/reducer/todo/todos';
+import { todos } from '../../src/reducer/todo';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
 // import expect, { createSpy, spyOn, isSpy } from 'expect';
 
-const todosTest = () => {
+const addTodoTest = () => {
   const befores = [];
   const action = {
     type: 'ADD_TODO',
@@ -21,8 +21,10 @@ const todosTest = () => {
 
   deepFreeze(befores);
   deepFreeze(action);
-  expect(todos(befores, action))
-    .toEqual(afters);
+
+  expect(
+    todos(befores, action)
+  ).toEqual(afters);
 };
 
-todosTest();
+addTodoTest();

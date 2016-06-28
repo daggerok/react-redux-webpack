@@ -8,6 +8,7 @@
  expect('something truthy').toExist();
  expect(null).toNotExist();
  */
-import './todo';
+export * from './todo';
+export * from './counter';
 
 console.log('tests passed.');

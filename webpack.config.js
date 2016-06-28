@@ -12,7 +12,7 @@ module.exports = {
       'babel-polyfill',
       './src/index.jsx'
     ],
-    test: './test/main.test.jsx'
+    test: './test'
   },
   output: {
     path: './dist/',

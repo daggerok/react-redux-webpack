@@ -1,7 +1,7 @@
 /**
  * Created by mak on 6/28/16.
  */
-import { rmCounter } from '../../src/reducer/todo/rmCounter';
+import { rmCounter } from '../../src/reducer/counter/rmCounter';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
 // import expect, { createSpy, spyOn, isSpy } from 'expect';
@@ -11,8 +11,10 @@ const rmCounterTest = () => {
   const afters = [0, 10];
 
   deepFreeze(befores);
-  expect(rmCounter(befores, 1))
-    .toEqual(afters);
+
+  expect(
+    rmCounter(befores, 1)
+  ).toEqual(afters);
 };
 
 rmCounterTest();

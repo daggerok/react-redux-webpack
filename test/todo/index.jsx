@@ -1,5 +1,2 @@
-import './addCounterTest';
-import './rmCounterTest';
-import './incrCounterTest';
-import './toggleCounterTest';
-import './todosTest';
+export * from './addTodoTest';
+export * from'./toggleTodoTest';
