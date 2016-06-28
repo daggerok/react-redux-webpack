@@ -1,4 +1,37 @@
 /**
  * Created by mak on 6/28/16.
  */
-export * from './todos';
+import { addTodo } from './addTodo';
+import { toggleTodo } from './toggleTodo';
+import { filterTodo } from './filterTodo';
+
+export const todos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      return addTodo(state, action);
+    case 'TOGGLE_TODO':
+      return toggleTodo(state, action);
+    default:
+      return state;
+  }
+};
+
+/* // manual combine reducers (commented code replaced with next one):
+export const todosDecorator = (state = {}, action) => {
+  return {
+    todos: todos(
+      state.todos,
+      action
+    ),
+    filterTodo: filterTodo(
+      state.filterTodo,
+      action
+    )
+  }
+};
+*/
+import { combineReducers } from 'redux';
+export const todosDecorator = combineReducers({
+  todos,
+  filterTodo
+});
