@@ -10,4 +10,4 @@
  */
 import './todo';
 
-console.log('passed.');
+console.log('tests passed.');
