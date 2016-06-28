@@ -5,20 +5,26 @@ export class Home extends Component {
   constructor() {
     super();
 
+    this.update = this.update.bind(this);
+    // this.onIncrement = this.onIncrement.bind(this);
+    // this.onDecrement = this.onDecrement.bind(this);
+
     store.subscribe(this.update);
 
-    this.state = {
-      counter: this.value()
-    };
+    this.state = { counter: store.getState() };
   }
 
-  value = () => store.getState();
+  update() {
+    this.setState({ counter: store.getState() });
+  }
 
-  update = () => this.setState({counter: this.value()});
+  onIncrement() {
+    store.dispatch({ type: 'INCREMENT' });
+  }
 
-  onIncrement = () => store.dispatch({type: 'INCREMENT'});
-
-  onDecrement = () => store.dispatch({type: 'DECREMENT'});
+  onDecrement() {
+    store.dispatch({ type: 'DECREMENT' });
+  }
 
   render() {
     return (

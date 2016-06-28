@@ -2,8 +2,6 @@ const
   webpack = require('webpack'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  autoprefixer = require('autoprefixer'),
   cssnano = require('cssnano');
 
 module.exports = {
