@@ -15,10 +15,13 @@ export const FilterLinkList = ({
     <br/>
     Show:{' '}
     <FilterLink filter={SHOW_ALL}
-                currentFilter={filter}>All</FilterLink>{' '}
+                currentFilter={filter}>All</FilterLink>
+    {' '}
     <FilterLink filter={SHOW_ACTIVE}
-                currentFilter={filter}>Active</FilterLink>{' '}
+                currentFilter={filter}>Active</FilterLink>
+    {' '}
     <FilterLink filter={SHOW_COMPLETED}
-                currentFilter={filter}>Completed</FilterLink>{' '}
+                currentFilter={filter}>Completed</FilterLink>
+    {' '}
   </div>
 );
