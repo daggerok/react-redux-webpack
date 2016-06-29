@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar } from '../Navbar';
-import { FilterLink } from './FilterLink';
+import { TodoItem } from './Todo/TodoItem';
+import { FilterLink } from './Todo/FilterLink';
 
 import { store } from '../../store/todo';
 import {
@@ -99,23 +100,24 @@ export class Todo extends Component {
       <div>
         <Navbar/>
 
-        <h4>add todo</h4>
+        <div class="container">
+          <h4>add todo</h4>
 
-        <div class="form-group">
-        <label htmlFor="todo-text">enter todo text</label>
-        <input id="todo-text"
-               class="form-control"
-               onKeyPress={this.onEnter}
-               ref={node => {
+          <div class="form-group">
+            <label htmlFor="todo-text">enter todo text</label>
+            <input id="todo-text"
+                   class="form-control"
+                   onKeyPress={this.onEnter}
+                   ref={node => {
                 this.input = node;
                }}/>
-        </div>
+          </div>
 
-        <div class="container">
-          <button class="btn btn-primary"
-                  onClick={this.addTodo}>save todo</button>
+          <div class="container">
+            <button class="btn btn-primary"
+                    onClick={this.addTodo}>save todo</button>
+          </div>
         </div>
-
 
         <div class="container">
           Show:{' '}
@@ -130,17 +132,9 @@ export class Todo extends Component {
         <div class="container">
           <h4>current todos: {this.state.size}</h4>
           <ul style={HomeStyles}>
-            {this.filterTodo().map((todo, index) => {
-              return (
-                <li onClick={() => this.completeTodo(todo.id)}
-                    style={{
-                      textDecoration: todo.completed ? 'line-through' : 'none'
-                    }}
-                    key={index}>
-                  {todo.id}) {todo.text}
-                </li>
-              );
-            })}
+            {this.filterTodo().map(
+              (todo, index) => 
+                <TodoItem key={index} onClick={() => this.completeTodo(todo.id)} todo={todo} />)}
           </ul>
         </div>
       </div>
