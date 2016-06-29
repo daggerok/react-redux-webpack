@@ -96,8 +96,11 @@ export class Todo extends Component {
             {this.state.todos.map((todo, index) => {
               return (
                 <li onClick={() => this.completeTodo(todo.id)}
+                    style={{
+                      textDecoration: todo.completed ? 'line-through' : 'none'
+                    }}
                     key={index}>
-                  {todo.id}) {todo.text}{todo.completed ? ' (done)' : '...'}
+                  {todo.id}) {todo.text}
                 </li>
               );
             })}
