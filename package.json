@@ -21,14 +21,9 @@
     "start": "webpack-dev-server --content-base ./ -w",
     "eslint": "eslint --debug './{src,test}/**/*.jsx'",
     "lintfix": "npm run eslint -- --fix",
-    "deploy:static": "surge -p dist/"
+    "deploy:static": "surge -p dist/",
+    "prepush": "npm test"
   },
-  "pre-push": {
-    "silent": false
-  },
-  "pre-push": [
-    "test"
-  ],
   "local-web-server": {
     "directory": "./dist/",
     "port": 3000,
@@ -92,7 +87,6 @@
     "nodemon": "1.9.2",
     "npm-run-all": "2.2.0",
     "postcss-loader": "0.9.1",
-    "pre-push": "0.1.1",
     "source-map-loader": "0.1.5",
     "style-loader": "0.13.1",
     "stylelint": "6.7.0",
