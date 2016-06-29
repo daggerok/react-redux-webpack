@@ -4,6 +4,4 @@ script:
   - npm i
   - npm test
   - npm run build
-cache:
-  directories:
-    - node_modules
+cache.directories: node_modules

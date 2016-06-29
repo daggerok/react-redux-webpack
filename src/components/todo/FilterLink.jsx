@@ -5,10 +5,12 @@ import { SET_VISIBILITY_FILTER } from '../../reducer/todo/todoType';
 
 export const FilterLink = ({
   filter,
+  currentFilter,
   children
 }) => {
   return (
     <a href="#"
+       class={filter === currentFilter ? 'hidden' : ''}
        onClick={e => {
          e.preventDefault();
          store.dispatch({

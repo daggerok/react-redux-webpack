@@ -116,6 +116,17 @@ export class Todo extends Component {
                   onClick={this.addTodo}>save todo</button>
         </div>
 
+
+        <div class="container">
+          Show:{' '}
+          <FilterLink filter={SHOW_ALL}
+                      currentFilter={this.state.filter}>All</FilterLink>{' '}
+          <FilterLink filter={SHOW_ACTIVE}
+                      currentFilter={this.state.filter}>Active</FilterLink>{' '}
+          <FilterLink filter={SHOW_COMPLETED}
+                      currentFilter={this.state.filter}>Completed</FilterLink>{' '}
+        </div>
+
         <div class="container">
           <h4>current todos: {this.state.size}</h4>
           <ul style={HomeStyles}>
@@ -131,12 +142,6 @@ export class Todo extends Component {
               );
             })}
           </ul>
-        </div>
-        <div class="container">
-          Show:{' '}
-          <FilterLink filter={SHOW_ALL}>All</FilterLink>{' '}
-          <FilterLink filter={SHOW_ACTIVE}>Active</FilterLink>{' '}
-          <FilterLink filter={SHOW_COMPLETED}>Completed</FilterLink>{' '}
         </div>
       </div>
     );
