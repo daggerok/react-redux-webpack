@@ -108,58 +108,6 @@
       "transform-decorators-legacy"
     ]
   },
-  "eslintConfig": {
-    "plugins": [
-      "react",
-      "eslint-plugin-react"
-    ],
-    "env": {
-      "browser": true,
-      "es6": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "xo",
-      "stylelint"
-    ],
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "rules": {
-      "jsx-quotes": "warn",
-      "react/prop-types": "warn",
-      "react/no-unknown-property": "off",
-      "no-empty": "error",
-      "comma-dangle": "off",
-      "semi": "off",
-      "no-unused-vars": "warn",
-      "object-curly-spacing": "warn",
-      "max-len": [
-        "error",
-        120
-      ],
-      "max-params": [
-        "error",
-        3
-      ],
-      "indent": [
-        "warn",
-        2
-      ],
-      "linebreak-style": [
-        "warn",
-        "unix"
-      ],
-      "quotes": [
-        "warn",
-        "single"
-      ]
-    }
-  },
   "tags": [
     "react",
     "react-router",
