@@ -16,21 +16,31 @@ export class Todo extends Component {
 
     this.addTodo = this.addTodo.bind(this);
     this.updateState = this.updateState.bind(this);
+    this.onEnter = this.onEnter.bind(this);
 
     store.subscribe(this.updateState);
 
     this.state = {
       size: store.getState().length,
-      todos: store.getState()
+      todos: store.getState(),
+      input: 'test'
     };
   }
 
   addTodo() {
     store.dispatch({
       type: ADD_TODO,
-      text: 'test',
+      text: this.input.value,
       id: id++
     });
+    this.input.value = '';
+  }
+
+  onEnter(event) {
+    if (13 === event.charCode) {
+      this.addTodo();
+      this.input.value = '';
+    }
   }
 
   updateState() {
@@ -44,6 +54,10 @@ export class Todo extends Component {
     return (
       <div>
         <Navbar/>
+        <input onKeyPress={this.onEnter}
+               ref={node => {
+                this.input = node;
+               }}/>
         <h4>add todo</h4>
         <div class="container">
           <button onClick={this.addTodo}>save todo</button>
