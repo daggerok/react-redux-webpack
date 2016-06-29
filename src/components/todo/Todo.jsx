@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Navbar } from '../Navbar';
-import { FilterLink } from './Todo/FilterLink';
+import { FilterLinkList } from './Todo/FilterLinkList';
 import { TodoList } from './Todo/TodoList';
 
 import { store } from '../../store/todo';
@@ -112,15 +112,7 @@ export class Todo extends Component {
           </div>
         </div>
 
-        <div class="container">
-          Show:{' '}
-          <FilterLink filter={SHOW_ALL}
-                      currentFilter={this.state.filter}>All</FilterLink>{' '}
-          <FilterLink filter={SHOW_ACTIVE}
-                      currentFilter={this.state.filter}>Active</FilterLink>{' '}
-          <FilterLink filter={SHOW_COMPLETED}
-                      currentFilter={this.state.filter}>Completed</FilterLink>{' '}
-        </div>
+        <FilterLinkList filter={this.state.filter} />
 
         <TodoList size={this.state.size}
                   styles={HomeStyles}

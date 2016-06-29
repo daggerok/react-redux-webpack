@@ -21,8 +21,10 @@
     "start": "webpack-dev-server --content-base ./ -w",
     "eslint": "eslint --debug './{src,test}/**/*.jsx'",
     "lintfix": "npm run eslint -- --fix",
-    "deploy:static": "surge -p dist/",
-    "postinstall": "webpack"
+    "deploy:static": "surge -p dist/"
+  },
+  "pre-push": {
+    "silent": false
   },
   "pre-push": [
     "test"
@@ -187,5 +189,8 @@
   "bugs": {
     "url": "https://github.com/daggerok/react-redux-webpack/issues"
   },
-  "homepage": "https://github.com/daggerok/react-redux-webpack#readme"
+  "homepage": "https://github.com/daggerok/react-redux-webpack#readme",
+  "directories": {
+    "test": "test"
+  }
 }
