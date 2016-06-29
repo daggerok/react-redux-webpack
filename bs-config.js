@@ -19,12 +19,17 @@ const devApi = proxy('/api', { // all requests to /api/** => will redirect on ht
   logLevel: 'debug'
 });
 */
+const fallback = require('connect-history-api-fallback');
+
 module.exports = {
-  "server": {
-    "baseDir": "./dist/"
-    // "middleware": [devApi]
+  server: {
+    always: 'index.html',
+    baseDir: './dist/',
+    // middleware: [devApi, fallback()],
+    middleware: [fallback()]
   },
-  "files": ['./dist/**/*.*'],
+  files: ['./dist/**/*.*'],
+  // default config:
   "ui": {
     "port": 3001,
     "weinre": {

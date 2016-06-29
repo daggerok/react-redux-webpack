@@ -1,39 +1,16 @@
-import React, { Component } from 'react';
-import { store } from '../reducer';
+import React from 'react';
+import { Link } from 'react-router';
 
-export class Home extends Component {
-  constructor() {
-    super();
+import { Navbar } from './Navbar';
+import { HomeStyles } from './Todo';
 
-    this.update = this.update.bind(this);
-    // this.onIncrement = this.onIncrement.bind(this);
-    // this.onDecrement = this.onDecrement.bind(this);
-
-    store.subscribe(this.update);
-
-    this.state = { counter: store.getState() };
-  }
-
-  update() {
-    this.setState({ counter: store.getState() });
-  }
-
-  onIncrement() {
-    store.dispatch({ type: 'INCREMENT' });
-  }
-
-  onDecrement() {
-    store.dispatch({ type: 'DECREMENT' });
-  }
-
-  render() {
-    return (
-      <div>
-        <h3>hi</h3>
-        <h4>current counter: {this.state.counter}</h4>
-        <button onClick={this.onIncrement}>+</button>
-        <button onClick={this.onDecrement}>-</button>
-      </div>
-    );
-  }
-}
+export const Home = () => (
+  <div>
+    <Navbar/>
+    <h2>Redux is awesome!</h2>
+    <ul style={HomeStyles}>
+      <li><Link to="todo">Todo</Link></li>
+      <li><Link to="counter">Counter</Link></li>
+    </ul>
+  </div>
+);
