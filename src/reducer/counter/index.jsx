@@ -1,7 +1,7 @@
 /**
  * Created by mak on 6/28/16.
  */
-import './addCounter';
-import './incrCounter';
-import './rmCounter';
-import './toggleCounter';
+export * from './addCounter';
+export * from './incrCounter';
+export * from './rmCounter';
+export * from './toggleCounter';

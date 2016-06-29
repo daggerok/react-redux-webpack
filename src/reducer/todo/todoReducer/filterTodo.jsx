@@ -1,5 +1,5 @@
-import { SET_VISIBILITY_FILTER } from './todoType';
-import { SHOW_ALL } from './todoState';
+import { SET_VISIBILITY_FILTER } from '../todoType';
+import { SHOW_ALL } from '../todoState';
 
 export const filterTodo = (
   state = SHOW_ALL,

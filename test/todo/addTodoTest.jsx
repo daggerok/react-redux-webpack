@@ -1,7 +1,7 @@
 /**
  * Created by mak on 6/28/16.
  */
-import { todos } from '../../src/reducer/todo';
+import { todos } from '../../src/reducer/todo/todoReducer/todos';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
 // import expect, { createSpy, spyOn, isSpy } from 'expect';

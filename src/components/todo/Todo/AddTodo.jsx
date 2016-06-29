@@ -32,10 +32,8 @@ export const AddTodo = () => (
              ref={node => { input = node; }}/>
     </div>
 
-    <div class="container">
-      <button class="btn btn-primary"
-              onClick={handleTodo}>save todo
-      </button>
-    </div>
+    <button class="btn btn-primary"
+            onClick={handleTodo}>save todo
+    </button>
   </div>
 );

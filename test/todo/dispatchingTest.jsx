@@ -1,8 +1,10 @@
 import { createStore } from 'redux';
-import { todos, todosDecorator } from '../../src/reducer/todo';
+
 import { log, pretty } from '../../src/util';
 
 /* // simple reducer
+import { todos } from '../../src/reducer/todo/todoReducer/todos';
+
 const store = createStore(todos);
 
 store.dispatch({ type: 'ADD_TODO', id: 0, text: 'init' });
@@ -16,6 +18,8 @@ pretty(store.getState());
 */
 
 // decorated reducer with filter functionality
+import { todosDecorator } from '../../src/reducer/todo';
+
 const store = createStore(todosDecorator);
 
 store.dispatch({ type: 'ADD_TODO', id: 0, text: 'init' });
