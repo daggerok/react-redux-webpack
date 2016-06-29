@@ -4,6 +4,7 @@ import { Navbar } from './Navbar';
 import { createStore } from 'redux';
 import { todosDecorator, ADD_TODO } from '../reducer/todo';
 import { log } from '../util/index';
+import { TOGGLE_TODO } from '../reducer/todo/todoType';
 
 const store = createStore(todosDecorator);
 export const HomeStyles = { listStyle: 'none' };
@@ -16,6 +17,7 @@ export class Todo extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.updateState = this.updateState.bind(this);
     this.onEnter = this.onEnter.bind(this);
+    this.completeTodo = this.completeTodo.bind(this);
 
     store.subscribe(this.updateState);
 
@@ -52,6 +54,13 @@ export class Todo extends Component {
     }
   }
 
+  completeTodo(id) {
+    store.dispatch({
+      type: TOGGLE_TODO,
+      id: id
+    });
+  }
+
   updateState() {
     this.setState({
       size: this.size(),
@@ -77,14 +86,20 @@ export class Todo extends Component {
         </div>
 
         <div class="container">
-          <button class="btn btn-primary" onClick={this.addTodo}>save todo</button>
+          <button class="btn btn-primary"
+                  onClick={this.addTodo}>save todo</button>
         </div>
 
         <div class="container">
           <h4>current todos: {this.state.size}</h4>
           <ul style={HomeStyles}>
             {this.state.todos.map((todo, index) => {
-              return <li key={index}>{todo.id}) {todo.text}</li>;
+              return (
+                <li onClick={() => this.completeTodo(todo.id)}
+                    key={index}>
+                  {todo.id}) {todo.text}{todo.completed ? ' (done)' : '...'}
+                </li>
+              );
             })}
           </ul>
         </div>
