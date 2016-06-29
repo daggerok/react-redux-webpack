@@ -27,6 +27,7 @@ links
 
 - [react](https://facebook.github.io/react)
 - [react-router](https://github.com/reactjs/react-router/tree/master/docs)
+- [redux](https://reduxframework.com)
 - [eslint](http://eslint.org/docs/user-guide/configuring.html#specifying-environments)
 - [eslint-react](https://github.com/yannickcr/eslint-plugin-react)
 - [webpack](https://webpack.github.io)
