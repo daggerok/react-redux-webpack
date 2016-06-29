@@ -7,7 +7,8 @@ const devServer = {
   proxy: {
     '/author': 'http://localhost:8080',
     '/message': 'http://localhost:8080'
-  }
+  },
+  historyApiFallback: true
 };
 
 module.exports = devServer;
