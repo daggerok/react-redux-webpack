@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { Navbar } from '../Navbar';
+import { FilterLink } from './FilterLink';
 
 import { store } from '../../store/todo';
-import { ADD_TODO } from '../../reducer/todo';
-import { TOGGLE_TODO } from '../../reducer/todo/todoType';
+import {
+  ADD_TODO,
+  TOGGLE_TODO
+} from '../../reducer/todo/todoType';
+import {
+  SHOW_ALL,
+  SHOW_ACTIVE,
+  SHOW_COMPLETED
+} from '../../reducer/todo/todoState';
 
 export const HomeStyles = { listStyle: 'none' };
 let id = 0;
@@ -16,13 +24,15 @@ export class Todo extends Component {
     this.updateState = this.updateState.bind(this);
     this.onEnter = this.onEnter.bind(this);
     this.completeTodo = this.completeTodo.bind(this);
+    this.filterTodo = this.filterTodo.bind(this);
 
     store.subscribe(this.updateState);
 
     this.state = {
       size: this.size(),
       todos: this.todos(),
-      input: 'test'
+      input: 'test',
+      filter: this.filter()
     };
   }
 
@@ -32,6 +42,10 @@ export class Todo extends Component {
 
   size() {
     return this.todos().length;
+  }
+
+  filter() {
+    return store.getState().filterTodo;
   }
 
   addTodo() {
@@ -59,10 +73,24 @@ export class Todo extends Component {
     });
   }
 
+  filterTodo() {
+    switch (this.state.filter) {
+      case SHOW_ALL:
+        return this.todos();
+      case SHOW_ACTIVE:
+        return this.todos().filter(todo => !todo.completed);
+      case SHOW_COMPLETED:
+        return this.todos().filter(todo => todo.completed);
+      default:
+        return this.todos();
+    }
+  }
+
   updateState() {
     this.setState({
       size: this.size(),
-      todos: this.todos()
+      todos: this.todos(),
+      filter: this.filter()
     });
   }
 
@@ -91,7 +119,7 @@ export class Todo extends Component {
         <div class="container">
           <h4>current todos: {this.state.size}</h4>
           <ul style={HomeStyles}>
-            {this.state.todos.map((todo, index) => {
+            {this.filterTodo().map((todo, index) => {
               return (
                 <li onClick={() => this.completeTodo(todo.id)}
                     style={{
@@ -103,6 +131,12 @@ export class Todo extends Component {
               );
             })}
           </ul>
+        </div>
+        <div class="container">
+          Show:{' '}
+          <FilterLink filter={SHOW_ALL}>All</FilterLink>{' '}
+          <FilterLink filter={SHOW_ACTIVE}>Active</FilterLink>{' '}
+          <FilterLink filter={SHOW_COMPLETED}>Completed</FilterLink>{' '}
         </div>
       </div>
     );
