@@ -3,7 +3,7 @@ import { filterTodo } from './todoReducer/filterTodo';
 import { combineReducers } from './combineReducers';
 
 /*
-// manual combine reducers (commented code replaced with next one):
+// simple combine reducers implementation:
 export const todosDecorator = (state = {}, action) => {
   return {
     todos: todos(
