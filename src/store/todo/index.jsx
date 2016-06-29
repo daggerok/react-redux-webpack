@@ -3,7 +3,8 @@ import { createStore } from 'redux';
 import { todosDecorator } from '../../reducer/todo';
 import {
   ADD_TODO,
-  TOGGLE_TODO
+  TOGGLE_TODO,
+  SET_VISIBILITY_FILTER
 } from '../../reducer/todo/todoType';
 import {
   SHOW_ALL,
@@ -16,8 +17,6 @@ export const store = createStore(todosDecorator);
 export const subscribe = (methodRef) => store.subscribe(methodRef);
 
 export const todos = () => store.getState().todos;
-
-export const size = () => todos().length;
 
 export const filter = () => store.getState().filterTodo;
 
@@ -43,4 +42,9 @@ export const addTodo = (text, id) => store.dispatch({
 export const completeTodo = (id) => store.dispatch({
   type: TOGGLE_TODO,
   id: id
+});
+
+export const setVisibilityFilter = (filter) => store.dispatch({
+  type: SET_VISIBILITY_FILTER,
+  filter
 });

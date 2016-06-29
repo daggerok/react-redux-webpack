@@ -5,15 +5,17 @@ import React from 'react';
 
 import { TodoItem } from './TodoItem';
 
-export const TodoList = ({
-  size,
-  styles,
-  todos
-}) => (
+import {
+  filterTodos
+} from '../../../store/todo';
+
+export const styles = { listStyle: 'none' };
+
+export const TodoList = ({ filter }) => (
   <div class="container">
-    <h4>current todos: {size}</h4>
+    <h4>current todos: {filterTodos(filter).length}</h4>
     <ul style={styles}>
-      {todos.map((todo, index) =>
+      {filterTodos(filter).map((todo, index) =>
         <TodoItem todo={todo}
                   key={index}/>
       )}

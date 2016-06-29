@@ -4,7 +4,6 @@
 import { rmCounter } from '../../src/reducer/counter/rmCounter';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-// import expect, { createSpy, spyOn, isSpy } from 'expect';
 
 const rmCounterTest = () => {
   const befores = [0, 20, 10];

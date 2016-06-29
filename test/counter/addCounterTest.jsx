@@ -4,7 +4,6 @@
 import { addCounter } from '../../src/reducer/counter/addCounter';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-// import expect, { createSpy, spyOn, isSpy } from 'expect';
 
 const addCounterTest = () => {
   const befores = [];

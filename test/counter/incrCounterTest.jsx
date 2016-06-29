@@ -4,7 +4,6 @@
 import { incrCounter } from '../../src/reducer/counter/incrCounter';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-// import expect, { createSpy, spyOn, isSpy } from 'expect';
 
 const incrCounterTest = () => {
   const befores = [0, 20, 10];

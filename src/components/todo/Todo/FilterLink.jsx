@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { store } from '../../../store/todo/index';
-import { SET_VISIBILITY_FILTER } from '../../../reducer/todo/todoType';
+import { setVisibilityFilter } from '../../../store/todo/index';
 
 export const FilterLink = ({
   filter,
@@ -10,13 +9,14 @@ export const FilterLink = ({
 }) => {
   return (
     <a href="#"
-       style={{ color: filter === currentFilter ? 'red' : '' }}
+       style={{
+         color: filter === currentFilter ? 'red' : ''
+       }}
        onClick={e => {
          e.preventDefault();
-         store.dispatch({
-           type: SET_VISIBILITY_FILTER,
-           filter
-         });
-       }}>{children}</a>
+         setVisibilityFilter(filter);
+       }}>
+      {children}
+    </a>
   );
 };

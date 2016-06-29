@@ -4,7 +4,6 @@
 import { toggleCounter } from '../../src/reducer/counter/toggleCounter';
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
-// import expect, { createSpy, spyOn, isSpy } from 'expect';
 
 const toggleCounterTest = () => {
   const befores = { id: 0, completed: false };

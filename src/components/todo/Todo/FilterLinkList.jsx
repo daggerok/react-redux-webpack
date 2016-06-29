@@ -8,9 +8,7 @@ import {
   SHOW_COMPLETED
 } from '../../../reducer/todo/todoState';
 
-export const FilterLinkList = ({
-  filter
-}) => (
+export const FilterLinkList = ({ filter }) => (
   <div class="container">
     <br/>
     Show:{' '}

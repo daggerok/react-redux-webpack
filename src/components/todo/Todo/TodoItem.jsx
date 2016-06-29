@@ -7,7 +7,9 @@ import { completeTodo } from '../../../store/todo';
 
 export const TodoItem = ({ todo }) => (
   <li onClick={() => completeTodo(todo.id)}
-      style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+      style={{
+        textDecoration: todo.completed ? 'line-through' : 'none'
+      }}>
     {todo.id}) {todo.text}
   </li>
 );

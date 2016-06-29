@@ -1,5 +1,3 @@
-import { log } from '../../util/index';
-
 /**
  * Created by mak on 6/28/16.
  */

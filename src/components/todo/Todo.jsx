@@ -7,33 +7,23 @@ import { TodoList } from './Todo/TodoList';
 
 import {
   subscribe,
-  todos,
-  size,
-  filter,
-  filterTodos
+  filter
 } from '../../store/todo';
-
-export const HomeStyles = { listStyle: 'none' };
 
 export class Todo extends Component {
   constructor() {
     super();
-
     this.updateState = this.updateState.bind(this);
     this.state = this.getState();
     subscribe(this.updateState);
   }
 
-  updateState() {
-    this.setState(this.getState());
+  getState() {
+    return { filter: filter() };
   }
 
-  getState() {
-    return {
-      size: size(),
-      todos: todos(),
-      filter: filter()
-    };
+  updateState() {
+    this.setState(this.getState());
   }
 
   render() {
@@ -45,9 +35,7 @@ export class Todo extends Component {
 
         <FilterLinkList filter={this.state.filter}/>
 
-        <TodoList size={this.state.size}
-                  styles={HomeStyles}
-                  todos={filterTodos(this.state.filter)}/>
+        <TodoList filter={this.state.filter}/>
       </div>
     );
   }
