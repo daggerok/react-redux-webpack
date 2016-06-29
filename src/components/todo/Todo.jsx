@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+
 import { Navbar } from '../Navbar';
-import { TodoItem } from './Todo/TodoItem';
 import { FilterLink } from './Todo/FilterLink';
+import { TodoList } from './Todo/TodoList';
 
 import { store } from '../../store/todo';
 import {
@@ -24,7 +25,6 @@ export class Todo extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.updateState = this.updateState.bind(this);
     this.onEnter = this.onEnter.bind(this);
-    this.completeTodo = this.completeTodo.bind(this);
     this.filterTodo = this.filterTodo.bind(this);
 
     store.subscribe(this.updateState);
@@ -65,13 +65,6 @@ export class Todo extends Component {
       this.addTodo();
       this.input.value = '';
     }
-  }
-
-  completeTodo(id) {
-    store.dispatch({
-      type: TOGGLE_TODO,
-      id: id
-    });
   }
 
   filterTodo() {
@@ -129,14 +122,9 @@ export class Todo extends Component {
                       currentFilter={this.state.filter}>Completed</FilterLink>{' '}
         </div>
 
-        <div class="container">
-          <h4>current todos: {this.state.size}</h4>
-          <ul style={HomeStyles}>
-            {this.filterTodo().map(
-              (todo, index) => 
-                <TodoItem key={index} onClick={() => this.completeTodo(todo.id)} todo={todo} />)}
-          </ul>
-        </div>
+        <TodoList size={this.state.size}
+                  styles={HomeStyles}
+                  todos={this.filterTodo()}/>
       </div>
     );
   }
