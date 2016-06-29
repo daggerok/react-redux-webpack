@@ -10,9 +10,7 @@ export const FilterLink = ({
 }) => {
   return (
     <a href="#"
-       style={{
-         color: filter === currentFilter ? 'red' : ''
-       }}
+       style={{ color: filter === currentFilter ? 'red' : '' }}
        onClick={e => {
          e.preventDefault();
          store.dispatch({
