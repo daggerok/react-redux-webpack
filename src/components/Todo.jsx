@@ -35,12 +35,14 @@ export class Todo extends Component {
   }
 
   addTodo() {
-    store.dispatch({
-      type: ADD_TODO,
-      text: this.input.value,
-      id: id++
-    });
-    this.input.value = '';
+    if (this.input.value) {
+      store.dispatch({
+        type: ADD_TODO,
+        text: this.input.value,
+        id: id++
+      });
+      this.input.value = '';
+    }
   }
 
   onEnter(event) {
@@ -61,18 +63,29 @@ export class Todo extends Component {
     return (
       <div>
         <Navbar/>
-        <input onKeyPress={this.onEnter}
+
+        <h4>add todo</h4>
+
+        <div class="form-group">
+        <label htmlFor="todo-text">enter todo text</label>
+        <input id="todo-text"
+               class="form-control"
+               onKeyPress={this.onEnter}
                ref={node => {
                 this.input = node;
                }}/>
-        <h4>add todo</h4>
-        <div class="container">
-          <button onClick={this.addTodo}>save todo</button>
         </div>
+
+        <div class="container">
+          <button class="btn btn-primary" onClick={this.addTodo}>save todo</button>
+        </div>
+
         <div class="container">
           <h4>current todos: {this.state.size}</h4>
           <ul style={HomeStyles}>
-            {this.state.todos.map((todo, index) => <li key={index}>{todo.id}) {todo.text}</li>)}
+            {this.state.todos.map((todo, index) => {
+              return <li key={index}>{todo.id}) {todo.text}</li>;
+            })}
           </ul>
         </div>
       </div>
