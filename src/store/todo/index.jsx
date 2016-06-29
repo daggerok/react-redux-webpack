@@ -16,6 +16,8 @@ export const store = createStore(todosDecorator);
 
 export const subscribe = (methodRef) => store.subscribe(methodRef);
 
+export const unsubscribe = (methodRef) => store.unsubscribe(methodRef);
+
 export const todos = () => store.getState().todos;
 
 export const filter = () => store.getState().filterTodo;

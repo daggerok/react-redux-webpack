@@ -15,7 +15,10 @@ export class Todo extends Component {
     super();
     this.updateState = this.updateState.bind(this);
     this.state = this.getState();
-    subscribe(this.updateState);
+  }
+
+  componentWillMount() {
+    this.unsubscribe = subscribe(this.updateState);
   }
 
   getState() {
@@ -38,5 +41,9 @@ export class Todo extends Component {
         <TodoList filter={this.state.filter}/>
       </div>
     );
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 }
