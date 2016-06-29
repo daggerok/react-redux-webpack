@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { Navbar } from './Navbar';
+import { Navbar } from '../Navbar';
 
-import { createStore } from 'redux';
-import { todosDecorator, ADD_TODO } from '../reducer/todo';
-import { log } from '../util/index';
-import { TOGGLE_TODO } from '../reducer/todo/todoType';
+import { store } from '../../store/todo';
+import { ADD_TODO } from '../../reducer/todo';
+import { TOGGLE_TODO } from '../../reducer/todo/todoType';
 
-const store = createStore(todosDecorator);
 export const HomeStyles = { listStyle: 'none' };
 let id = 0;
 

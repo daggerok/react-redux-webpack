@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import { Navbar } from './Navbar';
-import { HomeStyles } from './Todo';
+import { HomeStyles } from './todo/Todo';
 
 export const Home = () => (
   <div>

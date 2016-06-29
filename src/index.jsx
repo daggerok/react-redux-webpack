@@ -1,12 +1,17 @@
 import './styles';
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import {
+  Router, 
+  Route,
+  IndexRoute,
+  browserHistory
+} from 'react-router';
 
 import { Home } from './components/Home';
 import { NotFound } from './components/NotFound';
 import { Counter } from './components/Counter';
-import { Todo } from './components/Todo';
+import { Todo } from './components/todo/Todo';
 
 class App extends Component {
   constructor() {
