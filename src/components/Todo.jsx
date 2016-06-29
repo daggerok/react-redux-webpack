@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Navbar } from './Navbar';
 
 import { createStore } from 'redux';
-import { todos, todosDecorator, ADD_TODO } from '../reducer/todo';
+import { todosDecorator, ADD_TODO } from '../reducer/todo';
 import { log } from '../util/index';
 
-const store = createStore(todos);
-const decoratedStore = createStore(todosDecorator);
+const store = createStore(todosDecorator);
 export const HomeStyles = { listStyle: 'none' };
 let id = 0;
 
@@ -21,10 +20,18 @@ export class Todo extends Component {
     store.subscribe(this.updateState);
 
     this.state = {
-      size: store.getState().length,
-      todos: store.getState(),
+      size: this.size(),
+      todos: this.todos(),
       input: 'test'
     };
+  }
+
+  todos() {
+    return store.getState().todos;
+  }
+
+  size() {
+    return this.todos().length;
   }
 
   addTodo() {
@@ -45,8 +52,8 @@ export class Todo extends Component {
 
   updateState() {
     this.setState({
-      size: store.getState().length,
-      todos: store.getState()
+      size: this.size(),
+      todos: this.todos()
     });
   }
 
