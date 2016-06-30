@@ -7,24 +7,19 @@ import { store } from '../reducer';
 export class Counter extends Component {
   constructor() {
     super();
-
-    this.update = this.update.bind(this);
-
-    store.subscribe(this.update);
-
-    this.state = { counter: store.getState() };
+    this.state = this.getState();
   }
 
-  update() {
-    this.setState({ counter: store.getState() });
+  getState() {
+    return { counter: store.getState() };
   }
 
-  onIncrement() {
-    store.dispatch({ type: 'INCREMENT' });
+  componentDidMount() {
+    this.unsunscribe = store.subscribe(() => this.setState(this.getState()));
   }
 
-  onDecrement() {
-    store.dispatch({ type: 'DECREMENT' });
+  componentWillUnmount() {
+    this.unsunscribe();
   }
 
   render() {
@@ -33,8 +28,8 @@ export class Counter extends Component {
         <Navbar/>
         <h3>hi!</h3>
         <h4>current counter: {this.state.counter}</h4>
-        <button onClick={this.onIncrement}>+</button>
-        <button onClick={this.onDecrement}>-</button>
+        <button onClick={() => store.dispatch({ type: 'INCREMENT' })}>+</button>
+        <button onClick={() => store.dispatch({ type: 'DECREMENT' })}>-</button>
       </div>
     );
   }

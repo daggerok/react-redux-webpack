@@ -8,18 +8,12 @@ import {
   SHOW_COMPLETED
 } from '../../../reducer/todo/todoState';
 
-export const FilterLinkList = ({ filter }) => (
+export const FilterLinkList = () => (
   <div class="container">
     <br/>
     Show:{' '}
-    <FilterLink filter={SHOW_ALL}
-                currentFilter={filter}>All</FilterLink>
-    {' '}
-    <FilterLink filter={SHOW_ACTIVE}
-                currentFilter={filter}>Active</FilterLink>
-    {' '}
-    <FilterLink filter={SHOW_COMPLETED}
-                currentFilter={filter}>Completed</FilterLink>
-    {' '}
+    <FilterLink targetFilter={SHOW_ALL}>All</FilterLink>{' '}
+    <FilterLink targetFilter={SHOW_ACTIVE}>Active</FilterLink>{' '}
+    <FilterLink targetFilter={SHOW_COMPLETED}>Completed</FilterLink>{' '}
   </div>
 );

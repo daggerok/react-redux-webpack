@@ -8,9 +8,9 @@ const
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: {
-    polyfill: 'babel-polyfill',
-    app: './src/index.jsx',
-    test: './test'
+    aPolyfill: 'babel-polyfill',
+    bApp: './src/index.jsx',
+    cTest: './test'
   },
   output: {
     path: './dist/',
